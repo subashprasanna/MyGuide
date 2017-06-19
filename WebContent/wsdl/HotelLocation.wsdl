@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://learn.com" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://learn.com" xmlns:intf="http://learn.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://learn.com" xmlns="http://www.w3.org/2001/XMLSchema">
+   <element name="getHotelLocation">
+    <complexType>
+     <sequence>
+      <element name="hotelName" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getHotelLocationResponse">
+    <complexType>
+     <sequence>
+      <element name="getHotelLocationReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="getHotelLocationResponse">
+
+      <wsdl:part element="impl:getHotelLocationResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getHotelLocationRequest">
+
+      <wsdl:part element="impl:getHotelLocation" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="HotelLocation">
+
+      <wsdl:operation name="getHotelLocation">
+
+         <wsdl:input message="impl:getHotelLocationRequest" name="getHotelLocationRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getHotelLocationResponse" name="getHotelLocationResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="HotelLocationSoapBinding" type="impl:HotelLocation">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="getHotelLocation">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getHotelLocationRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getHotelLocationResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="HotelLocationService">
+
+      <wsdl:port binding="impl:HotelLocationSoapBinding" name="HotelLocation">
+
+         <wsdlsoap:address location="http://localhost:8080/FirstWebService/services/HotelLocation"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>
